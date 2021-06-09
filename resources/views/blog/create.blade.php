@@ -4,7 +4,7 @@
 <div class="w-4/5 m-auto text-left">
     <div class="py-15">
         <h1 class="text-4xl">
-            Create a new posts
+            Create a new post
         </h1>
     </div>
 </div>
@@ -34,6 +34,7 @@
                 <input type="file" name="image" class="hidden">
             </label>
         </div>
+        
         <button type="submit" class="uppercase mt-15 bg-blue-500 text-gray-100 text-lg font-extrabold py-4 px-8 rounded-3xl">
             Submit
         </button>

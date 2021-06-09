@@ -11,7 +11,7 @@
 
 @if(session()->has('message'))
 <div class="w-4/5 m-auto mt-10 pl-2">
-    <p class="w-1/5 mb-4 text-gray-50 font-bold bg-green-500 rounded-2xl py-4 px-4">
+    <p class="w-1/4 mb-4 text-gray-50 font-bold bg-green-500 rounded-2xl py-4 px-4">
         {{ session()->get('message') }}
     </p>
 </div>
@@ -43,6 +43,23 @@
         <a href="/blog/{{ $post->slug }}" class="bg-blue-500 text-gray-100 text-s font-bold py-4 px-6 rounded-3xl">
             Keep reading...
         </a>
+
+        @if(isset(Auth::user()->id) && Auth::user()->id == $post->user_id)
+            <span class="float-right">
+                <form action="/blog/{{ $post->slug }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="text-red-500 hover:text-red-900 italic" type="submit">
+                        Delete
+                    </button>    
+                </form>
+            </span>
+            <span class="float-right">
+                <a href="/blog/{{ $post->slug }}/edit" class="text-gray-700 italic hover:text-gray-900 mr-3">
+                    Edit
+                </a>
+            </span>
+        @endif
     </div>
 </div>
 @endforeach
