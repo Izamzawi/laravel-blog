@@ -1,0 +1,12 @@
+- install laravel-frontend-presets/tailwindcss --dev
+- php artisan ui tailwindcss --auth
+- remove-install laravel-mix (--save-dev)
+- npm install cross-env --save-dev
+- create controller: pages and posts
+- create routes for index and blog.index
+- create landing design
+- register and login
+- create blog.create
+- configure image uploading
+- composer require cviebrock/eloquent-sluggable
+
