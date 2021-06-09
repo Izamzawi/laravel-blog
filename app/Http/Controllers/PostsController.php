@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -46,7 +47,9 @@ class PostsController extends Controller
 
         $newImageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
 
-        $request->image->move(public_path('images'), $newImageName);
+        // $request->image->move(public_path('images'), $newImageName);
+
+        $request->image->storeAs('images/', $newImageName, 's3');
 
         Post::create([
             'title' => $request->input('title'),
@@ -55,6 +58,9 @@ class PostsController extends Controller
             'image_path' => $newImageName,
             'user_id' => auth()->user()->id,
         ]);
+
+        return redirect('/blog')
+            ->with('message', "New post added!");
     }
 
     /**

@@ -25,7 +25,7 @@
     <form action="/blog" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="text" name="title" placeholder="Title here" class="bg-gray-0 block border-b-2 w-full h-20 text-3xl outline-none">
-        <textarea name="content" id="" placeholder="Write your content here" class="py-20 bg-gray-0 block border-b-2 w-full h-60 text-xl outline-none"></textarea>
+        <textarea name="content" id="" placeholder="Write your content here" class="py-10 bg-gray-0 block border-b-2 w-full h-60 text-l outline-none"></textarea>
         <div class="bg-grey-lighter pt-15">
             <label class="w-44 flex flex-col items-center px-2 py-3 bg-white-rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer">
                 <span class="mt-2 text-base leading-normal">
