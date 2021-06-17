@@ -62,18 +62,18 @@
     <div class="flex bg-yellow-700 text-gray-100 pt-10">
         <div class="m-auto pt-4 pb-16 sm:m-auto w-4/5 block">
             <span class="uppercase text-xs">
-                PHP
+                {{ $recentPost->title }}
             </span>
             <h3 class="text-xl font-bold py-10">
-                Irure quis nisi quis minim qui. Dolor quis Lorem officia incididunt velit elit aliqua amet officia esse. Id consequat aute esse exercitation magna commodo aliqua enim dolor ea. Deserunt esse minim do aliquip quis sit in velit aliqua magna.
+                {{ Str::limit($recentPost->content, 100) }}.
             </h3>
-            <a href="blog" class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs py-3 px-5 rounded-3xl">
+            <a href="/blog/{{ $recentPost->slug }}" class="uppercase bg-transparent border-2 border-gray-100 text-gray-100 text-xs py-3 px-5 rounded-3xl">
                 Find out more
             </a>
         </div>
     </div>
     <div>
-        <img src="https://cdn.pixabay.com/photo/2015/09/05/22/33/office-925806_1280.jpg" alt="">
+        <img src="{{ Storage::disk('s3')->url('images/' . $recentPost->image_path) }}" alt="">
     </div>
 </div>
 

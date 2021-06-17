@@ -38,7 +38,7 @@
             By <span class="font-bold italic text-gray-800">{{ $post->user->name }}</span>, {{ $post->created_at->diffForHumans() }}.
         </span>
         <p class="text-xl text-gray-700 pt-8 pb-10 leading-8 font-light">
-            {{ $post->content }}
+            {{ Str::limit($post->content, 100) }}
         </p>
         <a href="/blog/{{ $post->slug }}" class="bg-blue-500 text-gray-100 text-s font-bold py-4 px-6 rounded-3xl">
             Keep reading...
