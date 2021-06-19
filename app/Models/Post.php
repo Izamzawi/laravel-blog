@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Cviebrock\EloquentSluggable\Sluggable;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Post extends Model
 {
     use HasFactory;
-    use Sluggable;
+    use HasSlug;
 
     protected $fillable = ['title', 'slug', 'content', 'image_path', 'user_id'];
 
@@ -18,13 +19,16 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function sluggable(): array
+    public function getSlugOptions() : SlugOptions
     {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }
 

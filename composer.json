@@ -12,7 +12,8 @@
         "laravel/framework": "^8.40",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.3",
-        "league/flysystem-aws-s3-v3": "~1.0"
+        "league/flysystem-aws-s3-v3": "~1.0",
+        "spatie/laravel-sluggable": "^2.6"
     },
     "require-dev": {
         "cviebrock/eloquent-sluggable": "^8.0",
