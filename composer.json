@@ -16,7 +16,6 @@
         "spatie/laravel-sluggable": "^2.6"
     },
     "require-dev": {
-        "cviebrock/eloquent-sluggable": "^8.0",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel-frontend-presets/tailwindcss": "^4.3",
